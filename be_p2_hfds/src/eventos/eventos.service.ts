@@ -30,7 +30,6 @@ export class EventosService {
   async update(id: number, dto: ActualizarEventoDto) {
     const evento = await this.findOne(id);
     if (dto.id_recinto !== undefined) await this.recintos.findOne(dto.id_recinto);
-    // La relación cargada debe quitarse para que no sobrescriba el nuevo id_recinto.
     const { recinto, ...datos } = evento;
     const cambios = { ...datos, ...dto, precio_entrada: dto.precio_entrada === undefined ? evento.precio_entrada : dto.precio_entrada.toFixed(2) };
     await this.eventos.save(cambios);
