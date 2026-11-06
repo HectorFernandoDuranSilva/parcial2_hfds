@@ -1,5 +1,3 @@
 # parcial2_hfds
 
-Hector Fernando Duran Silva Segundo Parcial
-
-
+Hector Fernando Duran Silva — Segundo Parcial.
