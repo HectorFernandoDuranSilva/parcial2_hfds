@@ -1,7 +1,7 @@
 import { Transform } from 'class-transformer';
 import { IsInt, Min, Max, IsString, IsNotEmpty, MaxLength, IsNumber, IsDateString, Matches, IsEnum } from 'class-validator';
 import { ApiProperty, PartialType } from '@nestjs/swagger';
-import { EstadoEvento } from './evento-cultural.entity';
+import { EstadoEvento, CategoriaEvento } from './evento-cultural.entity';
 
 export class CrearEventoDto {
   @ApiProperty({ example: 1 })
@@ -30,6 +30,10 @@ export class CrearEventoDto {
   @Matches(/^\d{4}-\d{2}-\d{2}$/)
   @IsDateString({ strict: true })
   fecha_evento: string;
+
+  @ApiProperty({ enum: CategoriaEvento, example: 'concierto' })
+  @IsEnum(CategoriaEvento)
+  categoria_evento: CategoriaEvento;
 
   @ApiProperty({ enum: EstadoEvento })
   @IsEnum(EstadoEvento)
