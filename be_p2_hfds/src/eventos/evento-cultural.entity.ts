@@ -8,6 +8,13 @@ export enum EstadoEvento {
   Cancelado = 'Cancelado',
 }
 
+export enum CategoriaEvento {
+  Concierto = 'concierto',
+  Teatro = 'teatro',
+  Danza = 'Danza',
+  Festival = 'festival',
+}
+
 @Entity('eventos_culturales')
 export class EventoCultural extends Auditoria {
   @PrimaryGeneratedColumn()
@@ -34,6 +41,9 @@ export class EventoCultural extends Auditoria {
 
   @Column({ type: 'date' })
   fecha_evento: string;
+
+  @Column({ type: 'enum', enum: CategoriaEvento, default: CategoriaEvento.Concierto })
+  categoria_evento: CategoriaEvento;
 
   @Column({ type: 'enum', enum: EstadoEvento })
   estado: EstadoEvento;
