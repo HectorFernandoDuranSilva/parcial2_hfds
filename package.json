@@ -1,0 +1,11 @@
+{
+  "name": "parcial2_hfds",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start:dev": "node scripts/dev.cjs",
+    "start:backend": "npm --prefix be_p2_hfds run start:dev",
+    "start:frontend": "python3 -m http.server 5500 --bind 127.0.0.1 --directory fe_p2_hfds",
+    "build": "npm --prefix be_p2_hfds run build"
+  }
+}
