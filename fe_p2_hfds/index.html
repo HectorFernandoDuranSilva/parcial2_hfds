@@ -1,7 +1,108 @@
 <!doctype html>
-<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Agenda cultural HFDS</title><link rel="stylesheet" href="styles.css"></head>
-<body><header><p class="eyebrow">PARCIAL 2 · HFDS</p><h1>Agenda cultural</h1><p>Recintos y eventos en un solo lugar.</p></header><main>
-<section class="panel"><div class="section-title"><h2>Recintos</h2><button id="nuevo-recinto">Nuevo recinto</button></div><form id="recinto-form" class="form hidden"><input type="hidden" id="recinto-id"><label>Nombre<input id="recinto-nombre" maxlength="100" required></label><label>Ciudad<input id="recinto-ciudad" maxlength="50" required></label><label>Aforo máximo<input id="recinto-aforo" type="number" min="1"></label><div><button>Guardar</button><button type="button" class="secondary cancelar">Cancelar</button></div></form><div id="recintos" class="cards"></div></section>
-<section class="panel"><div class="section-title"><h2>Eventos culturales</h2><button id="nuevo-evento">Nuevo evento</button></div><form id="evento-form" class="form hidden"><input type="hidden" id="evento-id"><label>Recinto<select id="evento-recinto" required></select></label><label>Título<input id="evento-titulo" maxlength="150" required></label><label>Artista principal<input id="evento-artista" maxlength="100" required></label><label>Duración (minutos)<input id="evento-duracion" type="number" min="1" required></label><label>Precio de entrada<input id="evento-precio" type="number" min="0" step="0.01" required></label><label>Fecha<input id="evento-fecha" type="date" required></label><label>Estado<select id="evento-estado" required><option>Programado</option><option>Agotado</option><option>Cancelado</option></select></label><div><button>Guardar</button><button type="button" class="secondary cancelar">Cancelar</button></div></form><div id="eventos" class="cards"></div></section>
-</main><div id="toast" role="status"></div><script src="app.js"></script></body></html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Agenda cultural HFDS</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header>
+      <p class="eyebrow">PARCIAL 2 · HFDS</p>
+      <h1>Agenda cultural</h1>
+      <p>Recintos y eventos en un solo lugar.</p>
+    </header>
 
+    <main>
+      <section class="panel">
+        <div class="section-title">
+          <h2>Recintos</h2>
+          <button id="nuevo-recinto">Nuevo recinto</button>
+        </div>
+
+        <form id="recinto-form" class="form hidden">
+          <input type="hidden" id="recinto-id">
+          <label>
+            Nombre
+            <input id="recinto-nombre" maxlength="100" required>
+          </label>
+          <label>
+            Ciudad
+            <input id="recinto-ciudad" maxlength="50" required>
+          </label>
+          <label>
+            Aforo máximo
+            <input id="recinto-aforo" type="number" min="1">
+          </label>
+          <div>
+            <button>Guardar</button>
+            <button type="button" class="secondary cancelar">Cancelar</button>
+          </div>
+        </form>
+
+        <div id="recintos" class="cards"></div>
+      </section>
+
+      <section class="panel">
+        <div class="section-title">
+          <h2>Eventos culturales</h2>
+          <button id="nuevo-evento">Nuevo evento</button>
+        </div>
+
+        <form id="evento-form" class="form hidden">
+          <input type="hidden" id="evento-id">
+          <label>
+            Recinto
+            <select id="evento-recinto" required></select>
+          </label>
+          <label>
+            Título
+            <input id="evento-titulo" maxlength="150" required>
+          </label>
+          <label>
+            Artista principal
+            <input id="evento-artista" maxlength="100" required>
+          </label>
+          <label>
+            Duración (minutos)
+            <input id="evento-duracion" type="number" min="1" required>
+          </label>
+          <label>
+            Precio de entrada
+            <input id="evento-precio" type="number" min="0" step="0.01" required>
+          </label>
+          <label>
+            Fecha
+            <input id="evento-fecha" type="date" required>
+          </label>
+          <label>
+            Categoría  
+            <select id="evento-categoria" required>
+              <option value="concierto">concierto</option>
+              <option value="teatro">teatro</option>
+              <option value="Danza">Danza</option>
+              <option value="festival">festival</option>
+            </select>
+          </label>
+          <label>
+            Estado
+            <select id="evento-estado" required>
+              <option>Programado</option>
+              <option>Agotado</option>
+              <option>Cancelado</option>
+            </select>
+          </label>
+          <div>
+            <button>Guardar</button>
+            <button type="button" class="secondary cancelar">Cancelar</button>
+          </div>
+        </form>
+
+        <div id="eventos" class="cards"></div>
+      </section>
+    </main>
+
+    <div id="toast" role="status"></div>
+    <script src="app.js?v=3"></script>
+  </body>
+</html>
