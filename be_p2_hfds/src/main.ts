@@ -7,7 +7,13 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
-  app.enableCors({ origin: process.env.FRONTEND_ORIGIN || 'http://localhost:5500' });
+  app.enableCors({
+    origin: [...new Set([
+      'http://localhost:5500',
+      'http://127.0.0.1:5500',
+      ...(process.env.FRONTEND_ORIGIN || '').split(',').map(origin => origin.trim()).filter(Boolean),
+    ])],
+  });
   app.useGlobalPipes(new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true, transform: true }));
   const config = new DocumentBuilder().setTitle('Agenda cultural · HFDS')
     .setDescription('Parcial 2 — Hector Fernando Duran Silva').setVersion('1.0').build();
